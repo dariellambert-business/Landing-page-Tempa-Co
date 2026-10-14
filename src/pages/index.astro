@@ -1,0 +1,536 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const whatsappLink = 'https://wa.me/6285175071565?text=Halo%20Tempa%2C%20saya%20tertarik%20untuk%20konsultasi%20gratis';
+const title = 'Tempa.co — Website, Chatbot & Otomasi AI untuk Bisnis Indonesia';
+const description = 'Buat website profesional, chatbot WhatsApp, dan otomasi bisnis dengan AI. Tanpa coding, langsung jalan. Khusus UMKM & bisnis Indonesia.';
+---
+
+<BaseLayout title={title} description={description}>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Tempa.co beranda">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="6" fill="#e8a838"/>
+          <path d="M8 11h16v3H18v10h-4V14H8v-3z" fill="#1a1a2e"/>
+        </svg>
+        <span>Tempa.co</span>
+      </a>
+      <a href={whatsappLink} class="btn btn-primary nav-cta" target="_blank" rel="noopener">
+        Konsultasi Gratis
+      </a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero section">
+    <div class="container">
+      <p class="hero-tag">Platform AI untuk bisnis Indonesia</p>
+      <h1 class="hero-title">
+        Bisnis kamu butuh hadir online,<br/>
+        tapi <span class="hero-accent">gak punya waktu</span> ngurusin teknologi?
+      </h1>
+      <p class="hero-sub">
+        Tempa.co bantu kamu bikin website profesional, chatbot WhatsApp yang balas otomatis, dan sistem otomasi — semua pakai AI, tanpa perlu coding.
+      </p>
+      <div class="hero-actions">
+        <a href={whatsappLink} class="btn btn-primary" target="_blank" rel="noopener">
+          Mulai Konsultasi Gratis
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.12.553 4.113 1.519 5.845L.058 23.7a.5.5 0 00.61.61l5.855-1.461A11.948 11.948 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.94 0-3.79-.526-5.404-1.523l-.388-.232-3.473.866.866-3.473-.232-.388A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        </a>
+        <a href="#produk" class="btn btn-secondary">Lihat Produk</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MASALAH ===== -->
+  <section class="section masalah" id="masalah">
+    <div class="container">
+      <h2 class="section-title">Kenapa bisnis kamu belum berkembang online?</h2>
+      <div class="masalah-grid">
+        <div class="masalah-card">
+          <div class="masalah-icon">⏰</div>
+          <h3>Gak ada waktu</h3>
+          <p>Ngurusin operasional bisnis sehari-hari udah menguras tenaga. Mau bikin website atau atur sosial media? Kapan?</p>
+        </div>
+        <div class="masalah-card">
+          <div class="masalah-icon">💸</div>
+          <h3>Biaya mahal</h3>
+          <p>Sewa developer bisa puluhan juta. Agensi digital minta kontrak tahunan. Budget UMKM gak sebesar itu.</p>
+        </div>
+        <div class="masalah-card">
+          <div class="masalah-icon">🤯</div>
+          <h3>Terlalu teknis</h3>
+          <p>Hosting, domain, SSL, API — istilah yang bikin pusing. Kamu mau jualan, bukan jadi programmer.</p>
+        </div>
+        <div class="masalah-card">
+          <div class="masalah-icon">📱</div>
+          <h3>Chat pelanggan kewalahan</h3>
+          <p>WhatsApp penuh pertanyaan yang sama berulang. Slow response = kehilangan pembeli.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOLUSI SINGKAT ===== -->
+  <section class="section solusi">
+    <div class="container solusi-inner">
+      <h2 class="section-title">Tempa.co = tim digital kamu yang kerja 24 jam</h2>
+      <p class="solusi-desc">
+        Kami gabungkan teknologi AI dengan pemahaman bisnis Indonesia. Hasilnya? Kamu dapat website, chatbot, dan otomasi — <strong>tanpa ribet, tanpa mahal, tanpa perlu paham coding</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== PRODUK ===== -->
+  <section class="section produk" id="produk">
+    <div class="container">
+      <h2 class="section-title">Tiga alat yang bikin bisnis kamu jalan otomatis</h2>
+
+      <div class="produk-grid">
+        <article class="produk-card">
+          <div class="produk-badge">Web Tempa</div>
+          <h3>Website profesional, jadi dalam hitungan hari</h3>
+          <p>Gak perlu nunggu berminggu-minggu. AI kami bantu bikin website yang cepat, mobile-friendly, dan langsung bisa terima pelanggan.</p>
+          <ul class="produk-fitur">
+            <li>Desain responsif untuk semua device</li>
+            <li>SEO biar muncul di Google</li>
+            <li>Integrasi WhatsApp & sosial media</li>
+            <li>Bisa diupdate sendiri, tanpa coding</li>
+          </ul>
+          <p class="produk-harga">Mulai dari <strong>Rp 1 juta</strong></p>
+        </article>
+
+        <article class="produk-card produk-card--highlight">
+          <div class="produk-badge">Chat Tempa</div>
+          <h3>Chatbot WhatsApp yang jawab seperti kamu</h3>
+          <p>Pelanggan tanya jam 2 pagi? Chatbot AI yang terlatih dengan data bisnis kamu akan jawab — sopan, akurat, 24/7.</p>
+          <ul class="produk-fitur">
+            <li>Balas otomatis di WhatsApp Business</li>
+            <li>Paham produk & harga kamu</li>
+            <li>Bisa handle ratusan chat sekaligus</li>
+            <li>Serah terima ke manusia kalau perlu</li>
+          </ul>
+          <p class="produk-harga">Mulai dari <strong>Rp 5 juta</strong></p>
+        </article>
+
+        <article class="produk-card">
+          <div class="produk-badge">Auto Tempa</div>
+          <h3>Otomasi yang hemat waktu kamu berjam-jam</h3>
+          <p>Follow-up pelanggan, kirim invoice, update stok — biar sistem yang kerjain. Kamu fokus ke strategi.</p>
+          <ul class="produk-fitur">
+            <li>Otomasi follow-up & reminder</li>
+            <li>Sinkronisasi data antar platform</li>
+            <li>Laporan otomatis tiap minggu</li>
+            <li>Custom sesuai alur bisnis kamu</li>
+          </ul>
+          <p class="produk-harga">Mulai dari <strong>Rp 8 juta</strong></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CARA KERJA ===== -->
+  <section class="section cara-kerja" id="cara-kerja">
+    <div class="container">
+      <h2 class="section-title">Dari ngobrol sampai jadi, cuma 3 langkah</h2>
+      <div class="langkah-grid">
+        <div class="langkah">
+          <div class="langkah-num">1</div>
+          <h3>Ceritakan bisnis kamu</h3>
+          <p>Hubungi kami via WhatsApp. Ceritakan bisnis, tantangan, dan target kamu. Konsultasi ini gratis.</p>
+        </div>
+        <div class="langkah-divider" aria-hidden="true"></div>
+        <div class="langkah">
+          <div class="langkah-num">2</div>
+          <h3>Kami rancang solusinya</h3>
+          <p>Tim kami analisa kebutuhan kamu, lalu buat proposal dan prototype. Kamu review, kasih feedback.</p>
+        </div>
+        <div class="langkah-divider" aria-hidden="true"></div>
+        <div class="langkah">
+          <div class="langkah-num">3</div>
+          <h3>Launch & langsung jalan</h3>
+          <p>Setelah deal, kita eksekusi cepat. Website live, chatbot aktif, otomasi berjalan. Kamu terima hasilnya.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PERCAYA / TRUST ===== -->
+  <section class="section trust">
+    <div class="container">
+      <h2 class="section-title">Kenapa pilih Tempa.co?</h2>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <h3>Paham bisnis Indonesia</h3>
+          <p>Kami bukan agensi luar negeri. Kami ngerti tantangan UMKM Indonesia — dari budget terbatas sampai pelanggan yang lebih suka WhatsApp daripada email.</p>
+        </div>
+        <div class="trust-item">
+          <h3>AI-first, bukan template murahan</h3>
+          <p>Setiap solusi dibangun dengan AI terbaru. Bukan copy-paste template yang sama untuk semua klien.</p>
+        </div>
+        <div class="trust-item">
+          <h3>Transparan & tanpa kontrak panjang</h3>
+          <p>Harga jelas di depan. Gak ada biaya tersembunyi. Gak dipaksa langganan tahunan kalau belum siap.</p>
+        </div>
+        <div class="trust-item">
+          <h3>Support langsung via WhatsApp</h3>
+          <p>Ada masalah? Langsung chat. Gak perlu buka tiket support atau nunggu email balasan berhari-hari.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="section cta-final">
+    <div class="container cta-final-inner">
+      <h2>Siap bawa bisnis kamu ke level selanjutnya?</h2>
+      <p>Konsultasi pertama gratis. Ceritakan bisnis kamu, dan kami kasih rekomendasi — tanpa tekanan, tanpa commitment.</p>
+      <a href={whatsappLink} class="btn btn-primary btn-lg" target="_blank" rel="noopener">
+        Chat Sekarang via WhatsApp
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.12.553 4.113 1.519 5.845L.058 23.7a.5.5 0 00.61.61l5.855-1.461A11.948 11.948 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.94 0-3.79-.526-5.404-1.523l-.388-.232-3.473.866.866-3.473-.232-.388A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>Tempa.co</strong>
+        <p>Platform AI untuk bisnis Indonesia.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#produk">Produk</a>
+        <a href="#cara-kerja">Cara Kerja</a>
+        <a href={whatsappLink} target="_blank" rel="noopener">Hubungi Kami</a>
+      </div>
+      <p class="footer-copy">&copy; {new Date().getFullYear()} Tempa.co — PT Tempa Cerdas Indonesia</p>
+    </div>
+  </footer>
+
+</BaseLayout>
+
+<style>
+  /* ===== NAV ===== */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0.75rem 0;
+    background: rgba(26,26,46,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+  }
+  .nav-cta {
+    font-size: var(--font-size-sm);
+    padding: 0.6rem 1.2rem;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding-top: calc(var(--section-gap) + 4rem);
+    padding-bottom: var(--section-gap);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.01em;
+  }
+  .hero-title {
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    line-height: var(--line-height-tight);
+    max-width: 720px;
+    margin-bottom: 1.5rem;
+  }
+  .hero-accent {
+    color: var(--color-accent);
+  }
+  .hero-sub {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin-bottom: 2rem;
+    line-height: var(--line-height-normal);
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title { font-size: var(--font-size-4xl); }
+  }
+  @media (min-width: 1024px) {
+    .hero-title { font-size: var(--font-size-5xl); }
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    line-height: var(--line-height-snug);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: var(--font-size-3xl); }
+  }
+
+  /* ===== MASALAH ===== */
+  .masalah { background: var(--color-surface); }
+  .masalah-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .masalah-card {
+    padding: 1.75rem;
+    border-radius: 10px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+  }
+  .masalah-icon {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  .masalah-card h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .masalah-card p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+  @media (min-width: 640px) {
+    .masalah-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ===== SOLUSI ===== */
+  .solusi-inner { max-width: 700px; }
+  .solusi-desc {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-normal);
+  }
+  .solusi-desc strong { color: var(--color-text); }
+
+  /* ===== PRODUK ===== */
+  .produk { background: var(--color-surface); }
+  .produk-grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .produk-card {
+    padding: 2rem;
+    border-radius: 10px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-card-border);
+  }
+  .produk-card--highlight {
+    border-color: var(--color-accent);
+    background: rgba(232,168,56,0.04);
+  }
+  .produk-badge {
+    display: inline-block;
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 0.75rem;
+  }
+  .produk-card h3 {
+    font-size: var(--font-size-xl);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: var(--line-height-snug);
+  }
+  .produk-card > p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin-bottom: 1.25rem;
+  }
+  .produk-fitur {
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+  .produk-fitur li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: 0.4rem;
+  }
+  .produk-fitur li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-cta);
+    font-weight: 700;
+  }
+  .produk-harga {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+  .produk-harga strong {
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+  }
+  @media (min-width: 768px) {
+    .produk-grid { grid-template-columns: 1fr 1fr 1fr; }
+  }
+
+  /* ===== CARA KERJA ===== */
+  .langkah-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .langkah-divider {
+    width: 2px;
+    height: 2rem;
+    background: var(--color-card-border);
+    margin-left: 1.25rem;
+    display: none;
+  }
+  .langkah-num {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: var(--color-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: var(--font-size-lg);
+    margin-bottom: 0.75rem;
+    flex-shrink: 0;
+  }
+  .langkah h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .langkah p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    max-width: 360px;
+  }
+  @media (min-width: 768px) {
+    .langkah-grid {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+    .langkah-divider {
+      display: block;
+      width: 3rem;
+      height: 2px;
+      margin-left: 0;
+      margin-top: 1.25rem;
+      flex-shrink: 0;
+    }
+    .langkah { flex: 1; }
+  }
+
+  /* ===== TRUST ===== */
+  .trust-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  .trust-item h3 {
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .trust-item p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-normal);
+  }
+  @media (min-width: 640px) {
+    .trust-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ===== CTA FINAL ===== */
+  .cta-final {
+    background: var(--color-surface);
+    text-align: center;
+  }
+  .cta-final-inner {
+    max-width: 600px;
+  }
+  .cta-final h2 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: var(--line-height-snug);
+  }
+  .cta-final p {
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    font-size: var(--font-size-base);
+  }
+  .btn-lg {
+    font-size: var(--font-size-lg);
+    padding: 1rem 2rem;
+  }
+  @media (min-width: 768px) {
+    .cta-final h2 { font-size: var(--font-size-3xl); }
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--color-card-border);
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .footer-brand p {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin-top: 0.25rem;
+  }
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+  .footer-links a:hover { color: var(--color-text); }
+  .footer-copy {
+    font-size: var(--font-size-sm);
+    color: var(--color-gray);
+  }
+  @media (min-width: 768px) {
+    .footer-inner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+</style>

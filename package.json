@@ -1,0 +1,26 @@
+{
+  "name": "landing-page-tempa-co",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dariellambert-business/landing-page-tempa-co.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dariellambert-business/landing-page-tempa-co/issues"
+  },
+  "homepage": "https://github.com/dariellambert-business/landing-page-tempa-co#readme",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.8"
+  }
+}
