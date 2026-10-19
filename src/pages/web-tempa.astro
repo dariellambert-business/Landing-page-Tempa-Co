@@ -50,10 +50,10 @@
   }
   .brand-logo{height:96px;width:auto;display:block;}
   .brand-logo--dark{display:none;}
-  [data-theme="light"] .brand-logo--light{display:block;}
-  [data-theme="light"] .brand-logo--dark{display:none;}
-  [data-theme="dark"] .brand-logo--light, :not([data-theme]) .brand-logo--light{display:none;}
-  [data-theme="dark"] .brand-logo--dark, :not([data-theme]) .brand-logo--dark{display:block;}
+  [data-theme="dark"] .brand-logo--light{display:none !important;}
+  [data-theme="dark"] .brand-logo--dark{display:block !important;}
+  [data-theme="light"] .brand-logo--light{display:block !important;}
+  [data-theme="light"] .brand-logo--dark{display:none !important;}
   .theme-toggle{
     background:var(--surface2);border:1px solid var(--border);color:var(--text);
     border-radius:20px;padding:7px 14px;font-size:12.5px;cursor:pointer;
