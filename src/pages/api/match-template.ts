@@ -1,18 +1,16 @@
 import type { APIRoute } from 'astro';
-import { readFileSync } from 'fs';
-import { join } from 'path';
 
 export const prerender = false;
 
-// ── Data loading (cached after first call) ──────────────────────
-let bpIndex: any;
-let bpPrompts: any;
+// ── Data loading (bundled by Vite at build time) ────────────────
+import bpIndexRaw from '../../../data/bp_index.json';
+import bpPromptsRaw from '../../../data/bp_prompts.json';
+
+const bpIndex: any = bpIndexRaw;
+const bpPrompts: any = bpPromptsRaw;
 
 function loadData() {
-  if (bpIndex) return;
-  const dataDir = join(process.cwd(), 'data');
-  bpIndex = JSON.parse(readFileSync(join(dataDir, 'bp_index.json'), 'utf8'));
-  bpPrompts = JSON.parse(readFileSync(join(dataDir, 'bp_prompts.json'), 'utf8'));
+  // no-op: data is imported at build time
 }
 
 // ── Tipe bisnis → mesin mapping ─────────────────────────────────
