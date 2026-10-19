@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/dariellambert-business/landing-page-tempa-co#readme",
   "dependencies": {
+    "@astrojs/node": "^11.1.8",
     "@astrojs/sitemap": "^3.7.4",
     "astro": "^7.3.8"
   }
