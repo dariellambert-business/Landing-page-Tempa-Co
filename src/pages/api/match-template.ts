@@ -120,8 +120,23 @@ export const OPTIONS: APIRoute = () =>
   new Response(null, { status: 204, headers: corsHeaders });
 
 export const POST: APIRoute = async ({ request }) => {
+  // 1. Parse body — separate try so we see JSON-parse errors clearly
+  let body: any;
   try {
-    const body = await request.json();
+    const raw = await request.text();
+    body = JSON.parse(raw);
+  } catch (parseErr: any) {
+    return new Response(
+      JSON.stringify({
+        error: 'Invalid JSON body',
+        detail: parseErr.message,
+        hint: 'Check that form values with quotes or newlines are properly escaped',
+      }),
+      { status: 400, headers: { 'Content-Type': 'application/json', ...corsHeaders } },
+    );
+  }
+
+  try {
     const { bidang_usaha, tipe_bisnis, client_data = {} } = body;
 
     if (!bidang_usaha && !tipe_bisnis) {
@@ -154,7 +169,7 @@ export const POST: APIRoute = async ({ request }) => {
     );
   } catch (err: any) {
     return new Response(
-      JSON.stringify({ error: 'Internal error', detail: err.message }),
+      JSON.stringify({ error: 'Internal error', detail: err.message, stack: err.stack }),
       { status: 500, headers: { 'Content-Type': 'application/json', ...corsHeaders } },
     );
   }
