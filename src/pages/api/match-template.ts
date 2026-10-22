@@ -109,6 +109,51 @@ function getFullPrompt(code: string) {
   return bpPrompts.entries.find((e: any) => e.code === code);
 }
 
+// ── Build Notion children blocks JSON ───────────────────────────
+function buildNotionChildren(match: any, prompt1Chunks: string[], dataProdukChunks: string[]): string {
+  const blocks: any[] = [];
+
+  // Heading
+  blocks.push({
+    object: 'block', type: 'heading_2',
+    heading_2: { rich_text: [{ type: 'text', text: { content: 'AI Prompt (Auto-Generated)' } }] },
+  });
+
+  // Summary line
+  blocks.push({
+    object: 'block', type: 'paragraph',
+    paragraph: { rich_text: [{ type: 'text', text: { content: `Template: ${match.c} | Mesin: ${match.m} | Style: ${match.d || ''}` } }] },
+  });
+
+  blocks.push({ object: 'block', type: 'divider', divider: {} });
+
+  // Prompt chunks
+  for (const chunk of prompt1Chunks) {
+    blocks.push({
+      object: 'block', type: 'paragraph',
+      paragraph: { rich_text: [{ type: 'text', text: { content: chunk } }] },
+    });
+  }
+
+  blocks.push({ object: 'block', type: 'divider', divider: {} });
+
+  // Data Produk heading
+  blocks.push({
+    object: 'block', type: 'heading_3',
+    heading_3: { rich_text: [{ type: 'text', text: { content: 'DATA PRODUK' } }] },
+  });
+
+  // Data Produk chunks
+  for (const chunk of dataProdukChunks) {
+    blocks.push({
+      object: 'block', type: 'paragraph',
+      paragraph: { rich_text: [{ type: 'text', text: { content: chunk } }] },
+    });
+  }
+
+  return JSON.stringify({ children: blocks });
+}
+
 // ── CORS headers ────────────────────────────────────────────────
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -159,8 +204,25 @@ export const POST: APIRoute = async ({ request }) => {
        .replace(/\r/g, '\\r')
        .replace(/\t/g, '\\t');
 
+    // Split text into chunks of max `size` chars (Notion limit: 2000 per rich_text)
+    const chunk = (s: string, size = 1900): string[] => {
+      if (s.length <= size) return [s];
+      const parts: string[] = [];
+      for (let i = 0; i < s.length; i += size) {
+        parts.push(s.slice(i, i + size));
+      }
+      return parts;
+    };
+
     const prompt1Raw = promptData?.prompt1 ?? '';
     const dataProdukRaw = promptData?.data_produk ?? '';
+
+    // Raw chunks (each ≤1900 chars, for Notion's 2000 char limit)
+    const prompt1Chunks = chunk(prompt1Raw);
+    const dataProdukChunks = chunk(dataProdukRaw);
+
+    // Pre-built Notion children body — JSON.stringify handles all escaping
+    const notionChildrenJson = buildNotionChildren(match, prompt1Chunks, dataProdukChunks);
 
     const result = {
       matched: true,
@@ -173,9 +235,11 @@ export const POST: APIRoute = async ({ request }) => {
       prompt1: prompt1Raw,
       dataProduk: dataProdukRaw,
       linkedPrompts: promptData?.linked_prompts ?? '',
-      // Pre-escaped versions safe to embed directly in JSON string templates
+      // Pre-escaped for direct embedding in JSON string templates
       prompt1Safe: jsonSafe(prompt1Raw),
       dataProdukSafe: jsonSafe(dataProdukRaw),
+      // Ready-to-use Notion API body for appending blocks
+      notionChildrenJson,
     };
 
     return new Response(
