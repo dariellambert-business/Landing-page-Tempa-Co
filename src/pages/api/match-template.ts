@@ -150,6 +150,18 @@ export const POST: APIRoute = async ({ request }) => {
     const promptData = getFullPrompt(match.c);
     const mesinInfo = bpIndex.meta.mesinDefs[match.m];
 
+    // Helper: make a string safe to embed inside a JSON string value
+    // (escapes backslashes, double quotes, newlines, tabs, carriage returns)
+    const jsonSafe = (s: string) =>
+      s.replace(/\\/g, '\\\\')
+       .replace(/"/g, '\\"')
+       .replace(/\n/g, '\\n')
+       .replace(/\r/g, '\\r')
+       .replace(/\t/g, '\\t');
+
+    const prompt1Raw = promptData?.prompt1 ?? '';
+    const dataProdukRaw = promptData?.data_produk ?? '';
+
     const result = {
       matched: true,
       templateCode: match.c,
@@ -158,9 +170,12 @@ export const POST: APIRoute = async ({ request }) => {
       mesinLabel: `${match.m} ${mesinInfo?.name ?? ''}`.trim(),
       designStyle: match.d || promptData?.design_system_style,
       pages: (match.p || promptData?.pages || []).join(', '),
-      prompt1: promptData?.prompt1 ?? '',
-      dataProduk: promptData?.data_produk ?? '',
+      prompt1: prompt1Raw,
+      dataProduk: dataProdukRaw,
       linkedPrompts: promptData?.linked_prompts ?? '',
+      // Pre-escaped versions safe to embed directly in JSON string templates
+      prompt1Safe: jsonSafe(prompt1Raw),
+      dataProdukSafe: jsonSafe(dataProdukRaw),
     };
 
     return new Response(
